@@ -12,12 +12,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: List Checked-out Files
+      - name: Create .npmrc
         run: |
-          echo "Listing all files in workspace:"
-          ls -al
-          echo ${{ secrets.GITHUB_TOKEN }}
-          cat ./.npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.PKG_TOKEN }}" > .npmrc
+          echo "@RHEcosystemAppEng:registry=https://npm.pkg.github.com" >> .npmrc
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -29,5 +27,5 @@ jobs:
 
       - name: Release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PKG_TOKEN }}
         run: npx semantic-release
