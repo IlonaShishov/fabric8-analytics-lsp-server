@@ -16,8 +16,6 @@ jobs:
         run: |
           echo "Listing all files in workspace:"
           ls -al
-          mv .npmrc ~
-          ls ~
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
