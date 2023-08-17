@@ -39,7 +39,6 @@ jspm_packages
 # Others
 .idea/
 dist
-.npmrc
 
 # generated tarball and publishing scripts
 target/
