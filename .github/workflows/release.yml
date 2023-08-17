@@ -11,8 +11,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+        
+      - name: List Checked-out Files
+        run: |
+          echo "Listing all files in workspace:"
+          ls -al
+
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
