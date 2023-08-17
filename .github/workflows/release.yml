@@ -16,6 +16,8 @@ jobs:
         run: |
           echo "Listing all files in workspace:"
           ls -al
+          echo ${{ secrets.GITHUB_TOKEN }}
+          cat ./.npmrc
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
