@@ -15,7 +15,7 @@ jobs:
           fetch-depth: 0
       - name: Create .npmrc
         run: |
-          echo "//npm.pkg.github.com/:_authToken=${PKG_TOKEN}" >> ~/.npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.PKG_TOKEN }}" >> ~/.npmrc
           echo "@RHEcosystemAppEng:registry=https://npm.pkg.github.com" > ~/.npmrc
       - name: Setup Node.js
         uses: actions/setup-node@v3
